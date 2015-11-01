@@ -21,6 +21,8 @@ int AIN2;   // holds value of analog A2
 int AIN3;   // holds value of analog A3
 int AIN4;   // holds value of analog A4
 int AIN5;   // holds value of analog A5
+int AIN6;   // holds value of analog A6
+int AIN7;   // holds value of analog A7
 HttpClient http;
 char params[512];             // holds data
 char chanBuff[65];            // holds channel data
@@ -48,6 +50,8 @@ void setup()
     pinMode(A3,INPUT);  // initialize A3 as input
     pinMode(A4,INPUT);  // initialize A4 as input
     pinMode(A5,INPUT);  // initialize A5 as input
+    pinMode(A6,INPUT);  // initialize A6 as input
+    pinMode(A7,INPUT);  // initialize A7 as input
     Serial.begin(9600);
 }
 
@@ -59,6 +63,8 @@ void loop()
     AIN3 = analogRead(A3);
     AIN4 = analogRead(A4);
     AIN5 = analogRead(A5);
+    AIN6 = analogRead(A6);
+    AIN7 = analogRead(A7);
     if (nextTime > millis()) 
     {
         return;
@@ -80,7 +86,6 @@ void loop()
     request.path = "/arduino";
 
     // The library also supports sending a body with your request:
-    //sprintf(params,"{\"type\":\"%s\",\"name\":\"%s\",\"%s\":\"%i\",\"%s\":\"%i\",\"%s\":\"%i\"}","BB_LHT","mysparkk","temperature",81,"humidity",41,"light",AIN0);
       // JSON starts here
       sprintf(params,"%s","{"); 
       sprintf(params,"%s\"macaddr\":\"%s\"",params,macaddr);
@@ -90,22 +95,28 @@ void loop()
       sprintf(params,"%s,\"type\":%s",params,"\"Arduino\""); 
       sprintf(params,"%s,\"channels\":%s",params,"[");
       // AIN0 channel
-      sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","AIN0",AIN0,"V",totalCount);
+      sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","A0",AIN0,"V",totalCount);
       sprintf(params,"%s%s,",params,chanBuff);
       // AIN1 channel
-      sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","AIN1",AIN1,"V",totalCount);
+      sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","A1",AIN1,"V",totalCount);
       sprintf(params,"%s%s,",params,chanBuff);
       // AIN2 channel
-      sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","AIN2",AIN2,"V",totalCount);
+      sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","A2",AIN2,"V",totalCount);
       sprintf(params,"%s%s,",params,chanBuff);
       // AIN3 channel
-      sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","AIN3",AIN3,"V",totalCount);
+      sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","A3",AIN3,"V",totalCount);
       sprintf(params,"%s%s,",params,chanBuff);
       // AIN4 channel
-      sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","AIN4",AIN4,"V",totalCount);
+      sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","A4",AIN4,"V",totalCount);
       sprintf(params,"%s%s,",params,chanBuff); 
-       // AIN5 channel
-      sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","AIN5",AIN5,"V",totalCount);
+      // AIN5 channel
+      sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","A5",AIN5,"V",totalCount);
+      sprintf(params,"%s%s,",params,chanBuff); 
+      // AIN6 channel
+      sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","A6",AIN6,"V",totalCount);
+      sprintf(params,"%s%s,",params,chanBuff); 
+       // AIN7 channel
+      sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","A7",AIN7,"V",totalCount);
       sprintf(params,"%s%s",params,chanBuff);     // Notice in the last channel, the %s%s without the comma at the end
       // Complete JSON
       sprintf(params,"%s%s",params,"]}]}"); 
