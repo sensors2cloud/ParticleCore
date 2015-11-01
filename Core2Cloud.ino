@@ -26,7 +26,7 @@ char params[512];             // holds data
 char chanBuff[65];            // holds channel data
 char securekey[] = "SENSORS2CLOUD-KEY-HERE";  // Obtain from Device Manager -> Edit Gateway -> Copy Secure Key then paste here
 char macaddr[]   = "CORE-DEVICE-ID";       // DEVICE ID of your Core Device
-// "54ff75066678574945101167"
+
 // Headers currently need to be set at init, useful for API keys etc.
 http_header_t headers[] = {
     { "Content-Type", "application/json" },
