@@ -1,5 +1,5 @@
 /*
-   HTTP Client for Pushing data form Partile.io Core into Sensors2cloud 
+   HTTP Client for Pushing data form Core HW into Sensors2cloud to build scalable IoT apps
    Author: Sensors2Cloud Inc.,
    THIS SOFTWARE IS PROVIDED TO YOU "AS IS," AND WE MAKE NO EXPRESS OR IMPLIED WARRANTIES 
    WHATSOEVER WITH RESPECT TO ITS FUNCTIONALITY,   OPERABILITY, OR USE, INCLUDING, WITHOUT LIMITATION, 
