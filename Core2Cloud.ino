@@ -24,8 +24,8 @@ int AIN5;   // holds value of analog A5
 HttpClient http;
 char params[512];             // holds data
 char chanBuff[65];            // holds channel data
-char securekey[] = "ag5zfnMyY2RldmVsb3BlcnI1CxIHR2F0ZXdheSIoc2xpbUBzZW5zb3JzMmNsb3VkLmNvbS1BQTowMDowMDowMDowMDowNAw";  // the secure key is your email address that was used to sign-up with Sensors2Cloud
-char macaddr[]   = "AA:00:00:00:00:04";       // Add MAC address of your Ethernet Shield Here. Please follow format FF:FF:FF:FF:FF:FF
+char securekey[] = "SENSORS2CLOUD-KEY-HERE";  // Obtain from Device Manager -> Edit Gateway -> Copy Secure Key then paste here
+char macaddr[]   = "CORE-DEVICE-ID";       // DEVICE ID of your Core Device
 // "54ff75066678574945101167"
 // Headers currently need to be set at init, useful for API keys etc.
 http_header_t headers[] = {
