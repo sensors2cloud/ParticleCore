@@ -92,7 +92,7 @@ void loop()
       sprintf(params,"%s,\"uptime\":%i",params,55); 
       sprintf(params,"%s,\"sensorList\":%s",params,"[{");
       sprintf(params,"%s\"name\":%s",params,"\"Core0\"");
-      sprintf(params,"%s,\"type\":%s",params,"\"Arduino\""); 
+      sprintf(params,"%s,\"type\":%s",params,"\"Core\""); 
       sprintf(params,"%s,\"channels\":%s",params,"[");
       // AIN0 channel
       sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","A0",AIN0,"V",totalCount);
